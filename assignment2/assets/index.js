@@ -44,21 +44,21 @@ class Bike extends Transport{
     }
 }
 
-function createItemCar(vehicleCar, data){
+function createItemCar(vehicleCar, image){
     let display='';
     display=`<div class='vehicle'><div class='vehicle__info'>${vehicleCar.getInfo()}</div>
     <div class='vehicle__price'>${vehicleCar.getPrice()}</div>
     <div class='vehicle__doors'>${vehicleCar.getDoorsCount()}</div>
-    <div class='vehicle__image'><img class='picture' src="${data.image}" alt="image"></div>
+    <div class='vehicle__image'><img class='picture' src="${image}" alt="image"></div>
     </div>`
     main.innerHTML+=display;
 }
-function createItemBike(vehicleBike, data){
+function createItemBike(vehicleBike, image){
     let display='';
     display=`<div class='vehicle'><div class='vehicle__info'>${vehicleBike.getInfo()}</div>
     <div class='vehicle__price'>${vehicleBike.getPrice()}</div>
     <div class='vehicle__doors'>${vehicleBike.getMaxSpeed()}</div>
-    <div class='vehicle__image'><img class='picture' src="${data.image}" alt="image"></div>
+    <div class='vehicle__image'><img class='picture' src="${image}" alt="image"></div>
     </div>`
     main.innerHTML+=display;
 }
@@ -68,7 +68,7 @@ data.forEach((item)=>{
     const vehicleBike=new Bike(item.type, item.price, item.brand, item.maxSpeed);
 
 function createItems() {
-    item.type==='car' ? createItemCar(vehicleCar, data) : createItemBike(vehicleBike, data);
+    item.type==='car' ? createItemCar(vehicleCar, data.image) : createItemBike(vehicleBike, data.image);
 }
     createItems();
 })
