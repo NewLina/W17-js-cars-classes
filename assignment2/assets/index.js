@@ -44,6 +44,9 @@ class Bike extends Transport{
     }
 }
 
+function createItems(type, vehicleCar, image, vehicleBike) {
+    return type ==='car' ? createItemCar(vehicleCar, image) : createItemBike(vehicleBike, image);
+}
 function createItemCar(vehicleCar, image){
     let display='';
     display=`<div class='vehicle'><div class='vehicle__info'>${vehicleCar.getInfo()}</div>
@@ -67,9 +70,6 @@ data.forEach((item)=>{
     const vehicleCar=new Car(item.type, item.price, item.brand, item.doors);
     const vehicleBike=new Bike(item.type, item.price, item.brand, item.maxSpeed);
 
-function createItems() {
-    item.type==='car' ? createItemCar(vehicleCar, data.image) : createItemBike(vehicleBike, data.image);
-}
-    createItems();
+    createItems(item.type, vehicleCar, item.image, vehicleBike);
 })
 
